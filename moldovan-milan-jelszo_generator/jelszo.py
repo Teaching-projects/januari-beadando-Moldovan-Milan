@@ -9,7 +9,6 @@ def jelszo_kimentese(mihez, jelszo):
 
 def random_jelszo(hossz, mihez):
     try:
-        hossz = int(hossz)
         kimenet = ""
         karakterek = []
         file = open("karakterek.txt", "r", encoding="utf-8")
@@ -17,7 +16,7 @@ def random_jelszo(hossz, mihez):
             karakterek.append(sor.strip())
         file.close()
         
-        for _ in range(hossz):
+        for _ in range(int(hossz)):
             kimenet += random.choice(karakterek)
         jelszo_kimentese(mihez, kimenet)
         return kimenet

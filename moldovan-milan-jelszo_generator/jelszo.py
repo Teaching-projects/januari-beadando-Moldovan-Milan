@@ -16,12 +16,12 @@ def random_jelszo(hossz, mihez):
             karakterek.append(sor.strip())
         file.close()
         
-        for _ in range(int(hossz)):
+        for _ in range(hossz):
             kimenet += random.choice(karakterek)
         jelszo_kimentese(mihez, kimenet)
         return kimenet
     except:
-        return "Nincs meg a 'karakterek.txt' vagy nem számot adtál meg a jelszó hosszánál!"
+        return "Nincs meg a 'karakterek.txt'!"
 
 
 def jelszo_betoltese():
@@ -36,21 +36,21 @@ def jelszo_betoltese():
 
 futas = True
 while futas:
-    parancs = input("Add meg a parancsot (1: új jelszó, 2: eddigi jelszavak, 3: kilépés): ")
 
     try:
-        if int(parancs) == 1:
+        parancs = int(input("Add meg a parancsot (1: új jelszó, 2: eddigi jelszavak, 3: kilépés): "))
+        if parancs == 1:
             print()
-            hossz = input("Hány karakterből álljon a jelszó: ")
+            hossz = int(input("Hány karakterből álljon a jelszó: "))
             mihez = input("Mihez lesz a jelszavad (pl.: Google fiók, Steam fiók): ")
             print(f" A jelszavad: {random_jelszo(hossz, mihez)}")
 
-        elif int(parancs) == 2:
+        elif parancs == 2:
             print("Ezek a jelszavaid:")
             print()
             jelszo_betoltese()
 
-        elif int(parancs) == 3:
+        elif parancs == 3:
             futas = False
 
     except:
